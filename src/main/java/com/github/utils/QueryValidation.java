@@ -20,8 +20,8 @@ public class QueryValidation {
         if (!(data.getResponseType().equals(RESPONSE_NEXT) || data.getResponseType().equals(RESPONSE_FIRST)))
             throw new IllegalArgumentException("Illegal response type");
         if (!validator.isValid(data.getDate()))
-            throw new IllegalArgumentException("Date is incorrect");
+            throw new IllegalArgumentException("Incorrect date");
         if (data.getTime() < 0)
-            throw new IllegalArgumentException("Wrong time");
+            throw new IllegalArgumentException("Incorrect time");
     }
 }
