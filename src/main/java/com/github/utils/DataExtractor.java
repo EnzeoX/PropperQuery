@@ -1,7 +1,5 @@
 package com.github.utils;
 
-import com.github.controller.WaitingController;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
