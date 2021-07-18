@@ -44,16 +44,14 @@ public class AverageWaitingTime {
             }
         }
         if (!service[0].equals("*")) {
-            int serviceLength = 0;
-            serviceLength = Math.min(service.length, waitingEntity.getService().length);
+            int serviceLength = Math.min(service.length, waitingEntity.getService().length);
             for (int p = 0; p < serviceLength; p++) {
                 if (!(Integer.parseInt(service[p]) == waitingEntity.getService()[p]))
                     throw new IllegalArgumentException("Unacceptable service - " + Arrays.toString(waitingEntity.getService()));
             }
         }
         if (!question[0].equals("*")) {
-            int questionLength = 0;
-            questionLength = Math.min(question.length, waitingEntity.getQuestions().length);
+            int questionLength = Math.min(question.length, waitingEntity.getQuestions().length);
             for (int p = 0; p < questionLength; p++) {
                 if (!(Integer.parseInt(question[p]) == waitingEntity.getQuestions()[p]))
                     throw new IllegalArgumentException("Unacceptable question - " + Arrays.toString(waitingEntity.getQuestions()));

@@ -53,7 +53,7 @@ public class QueryHandler {
             }
         }
         if (avgWaitingTime == 0) {
-            System.out.println("-");
+            System.out.println("For query " + "\"" + data + "\"" + " no avg time" + "\n");
         } else {
             System.out.println("For query " + "\"" + data + "\"" + " avg waiting time - " + avgWaitingTime + "\n");
         }
