@@ -11,18 +11,11 @@ import static com.github.utils.QueryParameters.LINE_COUNT;
 
 public class DataExtractor {
 
-    private WaitingController waitingController;
-
-    public DataExtractor(WaitingController waitingController) {
-        this.waitingController = waitingController;
-    }
-
     public static ArrayList<String> getDataFromInput() {
         System.out.println("Enter queries quantity");
         ArrayList<String> listOfQuery = new ArrayList<>();
-        int queryQuantity = 0;
         try {
-            queryQuantity = Integer.parseInt(ScannerInput.userInput());
+            int queryQuantity = Integer.parseInt(ScannerInput.userInput());
             if (queryQuantity > LINE_COUNT || queryQuantity < 1) {
                 System.out.println("The number of lines must be no more than 100,000 and no less than 1");
                 listOfQuery = getDataFromInput();
@@ -65,7 +58,7 @@ public class DataExtractor {
             firstRead = false;
             br.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return listOfQuery;
     }
