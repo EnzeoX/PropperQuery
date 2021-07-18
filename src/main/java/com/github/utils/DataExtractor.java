@@ -33,16 +33,17 @@ public class DataExtractor {
     public static ArrayList<String> getDataFromFile() {
         String st;
         int linesCount = 0;
-        boolean firstRead = false;
+        boolean firstRead = true;
         ArrayList<String> listOfQuery = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("./testfile.txt"))) {
             st = br.readLine();
             while (st != null) {
-                if (!firstRead) {
+                if (firstRead) {
                     try {
                         linesCount = Integer.parseInt(st);
-                        firstRead = true;
-                    } catch (IllegalArgumentException ignore) {
+                        firstRead = false;
+                    } catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
                     }
                     if (linesCount > LINE_COUNT || linesCount < 0)
                         throw new IllegalArgumentException("The number of lines must be no more than 100,000");
