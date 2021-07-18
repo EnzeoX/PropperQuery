@@ -23,16 +23,18 @@ public class DataExtractor {
         int queryQuantity = 0;
         try {
             queryQuantity = Integer.parseInt(ScannerInput.userInput());
-            if (queryQuantity > LINE_COUNT) {
-                System.out.println("The number of lines must be no more than 100,000");
-                getDataFromInput();
+            if (queryQuantity > LINE_COUNT || queryQuantity < 1) {
+                System.out.println("The number of lines must be no more than 100,000 and no less than 1");
+                listOfQuery = getDataFromInput();
+            } else {
+                System.out.println("Enter query:");
+                for (int i = 0; i < queryQuantity; i++) {
+                    listOfQuery.add(ScannerInput.userInput());
+                }
             }
         } catch (IllegalArgumentException e) {
             System.out.println("Only number input is acceptable");
-        }
-        System.out.println("Enter query:");
-        for (int i = 0; i < queryQuantity; i++) {
-            listOfQuery.add(ScannerInput.userInput());
+             listOfQuery = getDataFromInput();
         }
         return listOfQuery;
     }
