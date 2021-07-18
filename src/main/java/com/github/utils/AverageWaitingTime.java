@@ -24,20 +24,21 @@ public class AverageWaitingTime {
     public static int calculateTimeline(WaitingEntity waitingEntity, String query) {
         String pattern = "\\.";
         String[] data = QueryDecoder.fromQueryLine(query);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
         service = data[1].split(pattern);
         question = data[2].split(pattern);
         responseType = data[3];
         date = data[4].split("-");
         if (date.length == 2) {
             try {
-                dateFrom = new SimpleDateFormat("dd.MM.yyyy").parse(date[0]);
-                dateTo = new SimpleDateFormat("dd.MM.yyyy").parse(date[1]);
+                dateFrom = dateFormat.parse(date[0]);
+                dateTo = dateFormat.parse(date[1]);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
         } else {
             try {
-                dateFrom = new SimpleDateFormat("dd.MM.yyyy").parse(date[0]);
+                dateFrom = dateFormat.parse(date[0]);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
