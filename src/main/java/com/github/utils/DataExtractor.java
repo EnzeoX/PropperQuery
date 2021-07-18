@@ -27,19 +27,17 @@ public class DataExtractor {
             }
         } catch (IllegalArgumentException e) {
             System.out.println("Only number input is acceptable");
-             listOfQuery = getDataFromInput();
+            listOfQuery = getDataFromInput();
         }
         return listOfQuery;
     }
 
     public static ArrayList<String> getDataFromFile() {
         String st;
-        BufferedReader br;
         int linesCount = 0;
         boolean firstRead = false;
         ArrayList<String> listOfQuery = new ArrayList<>();
-        try {
-            br = new BufferedReader(new FileReader("./testfile2.txt"));
+        try (BufferedReader br = new BufferedReader(new FileReader("./testfile.txt"))) {
             st = br.readLine();
             while (st != null) {
                 if (!firstRead) {
@@ -55,8 +53,6 @@ public class DataExtractor {
                 }
                 st = br.readLine();
             }
-            firstRead = false;
-            br.close();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }

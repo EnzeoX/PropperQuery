@@ -16,9 +16,9 @@ public class QueryParameters {
 
     public static final int MAX_SUBCATEGORIES = 5;
 
-    public static final char WAITING_TIMELINE = 'C';
+    public static final String WAITING_TIMELINE = "C";
 
-    public static final char QUERY = 'D';
+    public static final String QUERY = "D";
 
     public static final String RESPONSE_FIRST = "P";
 
