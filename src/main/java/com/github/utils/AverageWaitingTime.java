@@ -13,7 +13,7 @@ public class AverageWaitingTime {
 
     private static Date dateTo;
 
-    public static int calculateTimeline(WaitingEntity waitingEntity, String query) {
+    public static int calculateAverageTime(WaitingEntity waitingEntity, String query) {
         String pattern = "\\.";
         String[] data = QueryDecoder.fromQueryLine(query);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");

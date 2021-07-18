@@ -45,7 +45,7 @@ public class QueryHandler {
         int avgWaitingTime = 0;
         for (WaitingEntity waitingEntity : entityList) {
             try {
-                int result = AverageWaitingTime.calculateTimeline(waitingEntity, data);
+                int result = AverageWaitingTime.calculateAverageTime(waitingEntity, data);
                 queryQuantity++;
                 avgWaitingTime = (avgWaitingTime + result) / queryQuantity;
             } catch (IllegalArgumentException e) {
@@ -53,7 +53,7 @@ public class QueryHandler {
             }
         }
         if (avgWaitingTime == 0) {
-            System.out.println("For query " + "\"" + data + "\"" + " no avg time" + "\n");
+            System.out.println("No avg time for query " + "\""  + data + "\"" + "\n");
         } else {
             System.out.println("For query " + "\"" + data + "\"" + " avg waiting time - " + avgWaitingTime + "\n");
         }
