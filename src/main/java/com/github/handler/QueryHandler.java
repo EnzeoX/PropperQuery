@@ -13,7 +13,7 @@ import java.util.List;
 
 public class QueryHandler {
 
-    private static WaitingController waitingController = new WaitingController(
+    private static final WaitingController waitingController = new WaitingController(
             new WaitingService(),
             new DateValidator("dd/MM/yyyy"),
             new QueryValidation());
